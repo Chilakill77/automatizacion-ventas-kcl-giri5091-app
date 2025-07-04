@@ -1,37 +1,46 @@
-<div class="row justify-content-md-center pt-5">
-    <div class="col col-lg-4 bg-info">
-        <mat-card appearance="filled">
-            <mat-card-header>
-                <mat-card-title>
-                    hola!
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <mat-form-field class="full-width pt-2" appearance="outline">
-                    <mat-label>
-                        usuario
-                    </mat-label>
-                    <input matInput>
-                </mat-form-field>
+<div class="row justify-content-md-center p-5">
+  <div class="col col-lg-4 bg-info">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>
+          Gay
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width pt-2" appearance="outline">
+            <mat-label>Usuario</mat-label>
+            <input matInput formControlName="username" />
+            <mat-error>
+              {{ baseForm.getErrorMessage(loginForm.get('username')) }}
+            </mat-error>
+          </mat-form-field>
 
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>
-                        Contraseña
-                    </mat-label>
-                                        <input type="password" matInput>
-                    <button mat-icon-buttib matSuffix>
-                        <mat-icon>visibility</mat-icon>
-                    </button>
-                </mat-form-field>
-                
-                <button class="full-width" matButton="filled">
-                    Acceder
-                </button>
-                <button class="full-width mt-2" matButton="text">
-                    Olvidaste tu contraseña?
-                </button>
-            </mat-card-content>
-        </mat-card>
-    </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              formControlName="password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hide = !hide"
+            >
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
 
+          <button type="submit" class="full-width" mat-raised-button color="primary">
+            Acceder
+          </button>
+          <button type="button" class="full-width mt-2" mat-button>
+            ¿Olvidaste tu contraseña?
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
