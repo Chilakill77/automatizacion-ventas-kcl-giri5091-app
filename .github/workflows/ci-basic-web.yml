@@ -13,10 +13,6 @@ on:
 jobs:
   sistemas-ventas-web:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: sistemas-ventas-web
-
     steps:
       - uses: actions/checkout@v4 # Clonar repositorio actual
 
@@ -30,7 +26,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: sistema-ventas-web/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('sistemas-ventas-web/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       # Instalar las dependencias
       - name: Install dependencies
