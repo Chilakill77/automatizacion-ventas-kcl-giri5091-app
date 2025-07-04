@@ -3,37 +3,36 @@ name: CI/CD Frontend
 
 # Controla lo que se va a ejecutar (Trigger) pull, push, pull request
 on:
-    push:
-        branches: [release,develop]
-        paths:
-            - '**'
-    pull_request:
-        paths:
-            - '**'
+  push:
+    branches: [release, develop, feature/auth]
+  
+  pull_request:
+    branches: [release, develop, feature/auth]
 
 # Pasos a realizar
 jobs:
-    sistemas-ventas-web:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: sistemas-ventas-web
-        steps:
-            - uses: actions/checkout@v4 # Clonar repositorio actual
-            - uses: actions/setup-node@v4 # Usar node
-              with:
-                node-version: 22.16.0 # version de node
+  sistemas-ventas-web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sistemas-ventas-web
 
-             # Cargar cache de node_modules, para reducir tiempo de instalacion en proximas ejecuciones
-           - name: Cache node modules
+    steps:
+      - uses: actions/checkout@v4 # Clonar repositorio actual
+
+      - uses: actions/setup-node@v4 # Usar Node
+        with:
+          node-version: 20 # Node LTS actual recomendado
+
+      # Cargar cache de node_modules, para reducir tiempo de instalación
+      - name: Cache node modules
         id: node-cache
-             uses: actions/cache@v4
-             with:
-                path: node_modules
-                key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json') }}
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
-         # Instalar las dependencias
-         - name: Install dependencies
-         # no ejecutar si se obtuvo node_modules de cache
-         if: step.node-cache.outputs.cache-hit !='true'
-         run: npm install
+      # Instalar las dependencias
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm install
