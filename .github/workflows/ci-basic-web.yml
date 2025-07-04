@@ -32,4 +32,3 @@ jobs:
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
-        working-directory: sistema-ventas-web
