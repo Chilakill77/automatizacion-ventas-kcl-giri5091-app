@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class setHeaders {
   @Input() data: { nombre: string; apellidos: string } | null = null;
 
   constructor(private router: Router, private authService: AuthService) {}

@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing-module';
 import { SharedModule } from './shared/shared.module';
-import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { JwtInterceptor } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [

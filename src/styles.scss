@@ -10,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
   @include mat.toolbar-overrides((
-    container-background-color: #350475,
-    //container-text-color: red,
+    container-background-color: #5209b3,
+    container-text-color: rgb(0, 0, 0),
   ));
 }
