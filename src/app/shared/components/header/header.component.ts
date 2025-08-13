@@ -8,10 +8,9 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class setHeaders {
+export class HeaderComponent {
   @Input() data: { nombre: string; apellidos: string } | null = null;
 
-  constructor(private router: Router, private authService: AuthService) {}
 
   irAInicio(): void {
     this.router.navigate(['/home']);
@@ -25,4 +24,6 @@ export class setHeaders {
     this.authService.logout();
     this.router.navigate(['/auth']);
   }
+  
 }
+
