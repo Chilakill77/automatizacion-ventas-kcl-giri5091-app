@@ -14,7 +14,6 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     SharedModule,
     AppRoutingModule
   ],
