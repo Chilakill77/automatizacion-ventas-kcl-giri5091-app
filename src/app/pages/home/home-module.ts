@@ -11,7 +11,9 @@ import { MaterialModule } from 'material.module';
     Home
   ],
   imports: [
-
+    CommonModule,
+    HomeRoutingModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }

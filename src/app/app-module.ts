@@ -12,7 +12,11 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
     AppComponent
   ],
   imports: [
-
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

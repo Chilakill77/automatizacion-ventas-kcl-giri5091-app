@@ -10,7 +10,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
   @Input() data: { nombre: string; apellidos: string } | null = null;
-
+  
+  constructor(private router: Router, private authService: AuthService) {}
 
   irAInicio(): void {
     this.router.navigate(['/home']);

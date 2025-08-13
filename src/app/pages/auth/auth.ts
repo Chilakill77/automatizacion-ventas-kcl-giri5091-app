@@ -23,7 +23,7 @@ export class Auth implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    public baseForm: BaseForm,
+    public BaseForm: BaseForm,
     private router: Router,
     private authService: AuthService
   ) {}
