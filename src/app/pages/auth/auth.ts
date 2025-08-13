@@ -2,7 +2,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { BaseForm } from '../../shared/utils/base.form';
+import { BaseForm } from '../../shared/utils/base.forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 
