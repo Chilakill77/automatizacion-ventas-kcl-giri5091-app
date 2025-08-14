@@ -11,11 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
 import { RouterModule } from '@angular/router';
+import { Auth } from './auth';
 
 
 
 @NgModule({
   declarations: [
+    Auth
 
   ],
   imports: [

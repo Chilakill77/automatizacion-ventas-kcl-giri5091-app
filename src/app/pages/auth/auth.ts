@@ -13,6 +13,7 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrl: './auth.scss'
 })
 export class Auth implements OnInit, OnDestroy {
+
   hide = true;
   private destroy$ = new Subject<any>();
 
@@ -55,6 +56,10 @@ export class Auth implements OnInit, OnDestroy {
           // Aquí podrías mostrar un mensaje al usuario con mat-error, snackbar, etc.
         }
       });
+  }
+
+  onSubmit() {
+    
   }
 
   ngOnDestroy(): void {
