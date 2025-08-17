@@ -43,4 +43,4 @@ jobs:
               with:
                 context: .
                 push: true
-                tags: chilakill77/ssv:latest
+                tags: kevincabreraluna/ssv:latest
