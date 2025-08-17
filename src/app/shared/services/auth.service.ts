@@ -1,8 +1,7 @@
-// src/app/shared/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -15,7 +14,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
+  /**
+   * Realiza login y guarda el token en localStorage.
+   * Devuelve un observable que puedes suscribirte desde tu componente.
+   */
+  login(username: string, password: string): Observable<{ access_token: string }> {
     return this.http
       .post<{ access_token: string }>(`${environment.API_URL}api/auth/auth/login`, { username, password })
       .pipe(
@@ -26,15 +29,25 @@ export class AuthService {
       );
   }
 
-  logout() {
+  /**
+   * Elimina token y actualiza el estado.
+   */
+  logout()  {
     localStorage.removeItem(this.tokenKey);
     this.tokenSubject.next(null);
   }
 
+  /**
+   * Obtiene token actual.
+   */
   get token(): string | null {
     return localStorage.getItem(this.tokenKey);
+
   }
 
+  /**
+   * Indica si el usuario está logueado.
+   */
   isLoggedIn(): boolean {
     return !!this.token;
   }

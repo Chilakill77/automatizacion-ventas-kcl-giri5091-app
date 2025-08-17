@@ -21,6 +21,7 @@ export class Auth implements OnInit, OnDestroy {
     username: ['', [Validators.required, Validators.minLength(3)]],
     password: ['', [Validators.required, Validators.minLength(3)]]
   });
+baseForm: any;
 
   constructor(
     private fb: FormBuilder,
@@ -59,7 +60,7 @@ export class Auth implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    
+
   }
 
   ngOnDestroy(): void {
